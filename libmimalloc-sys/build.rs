@@ -55,8 +55,8 @@ fn main() {
 
     build.compile("mimalloc");
 
-    // on armv6 we need to link with libatomic
-    if target_os == "linux" && target_arch == "arm" {
+    // we need to link with libatomic
+    if target_os == "linux" {
         // Embrace the atomic capability library across various platforms.
         // For instance, on certain platforms, llvm has relocated the atomic of the arm32 architecture to libclang_rt.builtins.a
         // while some use libatomic.a, and others use libatomic_ops.a.
